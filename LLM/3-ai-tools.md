@@ -1,5 +1,7 @@
 ﻿# AI-ИНСТРУМЕНТЫ ДЛЯ РАЗРАБОТКИ
 
+## 📋 Содержание
+
 1. [Типы AI-инструментов для разработки](#1-типы-ai-инструментов-для-разработки)
 2. [Режимы работы: Planning vs Execute](#2-режимы-работы-planning-vs-execute)
 3. [Prompt Engineering для Vibe-Coding](#3-prompt-engineering-для-vibe-coding)

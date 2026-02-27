@@ -1,6 +1,21 @@
 # MODEL CONTEXT PROTOCOL (MCP)
 ## Часть 2: Продвинутые техники
 
+## 📋 Содержание
+
+- [1: Продвинутые техники](#часть-2-продвинутые-техники)
+- [1.1 Три примитива MCP](#11-три-примитива-mcp)
+- [1.2 Как работает MCP под капотом](#12-как-работает-mcp-под-капотом)
+- [2: ПОПУЛЯРНЫЕ MCP СЕРВЕРЫ](#часть-2-популярные-mcp-серверы)
+- [2.1 Официальные серверы от Anthropic](#21-официальные-серверы-от-anthropic)
+- [2.2 Community серверы](#22-community-серверы)
+- [3: MCP VS SKILLS](#часть-4-mcp-vs-skills)
+- [3.1 В чём разница?](#41-в-чём-разница)
+- [3.2 Когда что использовать?](#42-когда-что-использовать)
+- [5: БЕЗОПАСНОСТЬ MCP](#часть-5-безопасность-mcp)
+- [5.1 Риски](#51-риски)
+- [5.2 Best Practices](#52-best-practices)
+
 ## 1.1 Три примитива MCP
 
 MCP имеет **три способа** работы с данными. Каждый способ решает свою задачу.
@@ -972,132 +987,7 @@ github.com: "mcp server" + [технология]
 
 ---
 
-
-# ЧАСТЬ 3: ПРАКТИКА — НАСТРОЙКА MCP
-
-
-Теория позади — давай настроим MCP в Claude Code на практике!
-
-## 3.1 Настройка в Claude Code
-
-### 📋 Предварительные требования
-
-```
-✅ Claude Code установлен (https://claude.ai/code)
-✅ Node.js >= 18.0.0
-✅ npm >= 9.0.0
-
-Проверка:
-$ node --version
-v20.10.0
-
-$ npm --version
-10.2.3
-```
-
----
-
-### 🔧 Шаг 1: Создание конфигурации
-
-**Файл конфигурации находится по пути:**
-
-```bash
-# macOS / Linux
-~/.config/claude-code/mcp.json
-
-# Windows
-%APPDATA%\claude-code\mcp.json
-```
-
-**Создадим базовую конфигурацию:**
-
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/Users/yourname/projects"
-      ]
-    },
-    "github": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
-      "env": {
-        "GITHUB_TOKEN": "ghp_your_token_here"
-      }
-    }
-  }
-}
-```
-
-**Что тут происходит?**
-
-```
-"filesystem": {                    ← Имя сервера (можешь назвать как хочешь)
-  "command": "npx",                ← Как запускать (npx = Node Package Execute)
-  "args": [                        ← Аргументы команды
-    "-y",                          ← auto-confirm в npx
-    "@model.../server-filesystem", ← Какой пакет запускать
-    "/Users/.../projects"          ← Путь к папке для доступа
-  ]
-}
-
-"env": {                           ← Переменные окружения
-  "GITHUB_TOKEN": "..."            ← API ключи/токены
-}
-```
-
----
-
-### 🚀 Шаг 2: Перезапуск Claude Code
-
-```
-1. Закрой Claude Code полностью (Cmd+Q на Mac, Alt+F4 на Windows)
-2. Открой снова
-3. При старте Claude Code:
-   - Читает mcp.json
-   - Запускает серверы
-   - Устанавливает соединения
-```
-
----
-
-### ✅ Шаг 3: Проверка подключения
-
-**Способ 1: Через команду**
-
-```
-В Claude Code набери:
-/mcp list
-
-Результат:
-Connected MCP Servers:
-• filesystem (/Users/yourname/projects)
-• github (https://github.com)
-```
-
-**Способ 2: Попробуй использовать**
-
-```
-Ты: "Покажи файлы в моём проекте"
-
-Если MCP работает:
-Claude прочитает файлы через filesystem server
-
-Если НЕ работает:
-Claude ответит: "У меня нет доступа к файловой системе"
-```
-
-
-
 # ЧАСТЬ 4: MCP VS SKILLS
-
 
 ## 4.1 В чём разница?
 
