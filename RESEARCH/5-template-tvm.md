@@ -5,7 +5,7 @@
 ---
 
 ## 1. О КОМПАНИИ
-
+![TVM — Твой Виртуальный Мир](https://raw.githubusercontent.com/phpclub/ai-coding-fundamentals/main/RESEARCH/tvm-logo.png)
 | Поле | Данные |
 |------|--------|
 | Компания | ИП Невзоров А.В. |
